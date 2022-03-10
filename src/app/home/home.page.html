@@ -1,20 +1,37 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Cartoonize
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-item color="tertiary" lines="outline">
+    <ion-label>Cartoonize uma foto!!!</ion-label>
+  </ion-item>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <div class="inputoutput">
+      <div *ngIf="imagemString != ''">
+        <img style="display:none;" #imagem [src]="imagemString" alt="">
+      </div>
+      <div class="canvas">
+        <canvas #canvas></canvas>
+      </div>
+      <div class="alerta-aguarde" *ngIf="requisitando">
+        <p>Aguarde...</p>
+      </div>
+    </div>
+
+
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="addPhotoToGallary()">
+      <ion-icon name="camera-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  
 </ion-content>
+
+<script>
+  console.log('olha só! um script!')
+</script>
